@@ -1,11 +1,10 @@
-# AWS WordPress High Availability Demo Architecture
+# AWS WordPress Highly Available Demo Architecture
 
 * [Overview](#overview)
 * [Architecture](#architecture)
 * [Prerequisites](#prerequisites)
   * [AWS account](#aws-account)
   * [AWS CLI](#aws-cli)
-  * [AWS CDK](#aws-cdk)
   * [Node.js](#nodejs)
 * [Instructions](#instructions)
   * [Setting up AWS local profile and credentials](#setting-up-aws-local-profile-and-credentials)
@@ -14,27 +13,21 @@
   * [Synthesizing the CloudFormation template](#synthesizing-the-cloudformation-template)
   * [Deploying the application](#deploying-the-application)
   * [Cleaning up](#cleaning-up)
-* [Improvements (TODO)](#improvements)
+* [Out of scope](#out-of-scope)
 
 ## Overview
-Demo CDK app that deploys a HA WordPress architecture on AWS
+Demo CDK app that deploys a HA WordPress architecture on AWS.
 
 ## Architecture
 ![architecture](./architecture/architecture.png)
 
 ## Prerequisites
 
-### AWS account
-You will need an AWS account to deploy this architecture. If you don't have one, you can create one [here](https://aws.amazon.com/).
+* [AWS account](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html).
 
-### AWS CLI
-You will need the AWS CLI installed on your machine. You can find instructions on how to install it [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
+* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-### AWS CDK
-You will need the AWS CDK installed on your machine. You can find instructions on how to install it [here](https://docs.aws.amazon.com/cdk/latest/guide/work-with-cdk-python.html).
-
-### Node.js
-You will need Node.js installed on your machine. You can find instructions on how to install it [here](https://nodejs.org/en/download/) or using NVM [here](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating)
+* [Node.js](https://nodejs.org/en/download/) ~v20.14 ([nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating))
 
 
 ## Instructions
@@ -72,26 +65,26 @@ npm ci
 
 ### Bootstrap the CDK environment on AWS account
 ```bash
-cdk bootstrap --profile WordPressSandbox
+npx cdk bootstrap
 ```
 
 ### Synthesizing the CloudFormation template
 ```bash
-cdk synth
+npx cdk synth
 ```
 
 ### Deploying the application
 ```bash
-cdk deploy
+npx cdk deploy
 ```
 
 ### Cleaning up
 ```bash
-cdk destroy
+npx cdk destroy
 ```
 
 
-## Improvements
+## Out of scope
 This demo doesn't cover all the best practices for deploying a WordPress architecture on AWS.
 
 Here are some improvements that could be made:
