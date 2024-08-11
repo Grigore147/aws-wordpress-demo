@@ -1,6 +1,6 @@
 import { NetworkProps } from './constructs/network';
 
-import { SubnetType, InstanceClass, InstanceSize, AmazonLinuxGeneration } from "aws-cdk-lib/aws-ec2";
+import { SubnetType, InstanceClass, InstanceSize, AmazonLinuxGeneration, IpAddresses } from "aws-cdk-lib/aws-ec2";
 import { AuroraMysqlEngineVersion } from "aws-cdk-lib/aws-rds";
 
 type Config = {
@@ -48,7 +48,7 @@ export default {
     network: {
         vpc: {
             vpcName: 'WordPressVPC',
-            vpcCidr: '10.0.0.0/16',
+            ipAddresses: IpAddresses.cidr('10.0.0.0/16'),
             availabilityZones: ['eu-central-1a', 'eu-central-1b', 'eu-central-1c'],
             enableDnsHostnames: true,
             enableDnsSupport: true,
@@ -70,7 +70,6 @@ export default {
                     subnetType: SubnetType.PRIVATE_ISOLATED,
                 }
             ]
-
         }
     },
 
